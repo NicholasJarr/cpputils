@@ -9,6 +9,7 @@ project(cpputils VERSION 0.0.1
 # Options
 option(BUILD_WEB "Build the web lib" ON)
 option(BUILD_IOTHUB "Build the iothub lib" ON)
+option(BUILD_TESTS "Build the project tests" ON)
 
 if (BUILD_WEB)
     add_subdirectory(web)
@@ -18,4 +19,8 @@ endif()
 if (BUILD_IOTHUB)
     add_subdirectory(iothub)
     add_library(${PROJECT_NAME}::iothub ALIAS iothub)
+endif()
+
+if (BUILD_TESTS)
+    add_subdirectory(tests)
 endif()
